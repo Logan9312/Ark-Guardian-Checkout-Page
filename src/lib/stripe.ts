@@ -4,6 +4,9 @@ import type { Session } from '@auth/core/types';
 export const createCheckoutSession = async (page_session: Session, token: string, sub: string) => {
 	let checkout_session = null;
 	let portal = null;
+	const rootURL = `${window.location.protocol}//${window.location.hostname}${
+		window.location.port ? ':' + window.location.port : ''
+	}`;
 
 	const stripe = new Stripe(token, {
 		apiVersion: '2022-11-15'
@@ -19,8 +22,8 @@ export const createCheckoutSession = async (page_session: Session, token: string
 				} */
 			}
 		],
-		success_url: `/Success`,
-		cancel_url: `https://vanquished-checkout-page.vercel.app/signout`,
+		success_url: `${rootURL}/Success`,
+		cancel_url: `${rootURL}/signout`,
 		subscription_data: {
 			metadata: {
 				discord_id: page_session.user.id
@@ -30,7 +33,7 @@ export const createCheckoutSession = async (page_session: Session, token: string
 	if (checkout_session.customer) {
 		portal = await stripe.billingPortal.sessions.create({
 			customer: checkout_session.customer.toString(),
-			return_url: 'https://vanquished.gg/'
+			return_url: `${rootURL}/Success`
 		});
 	} else {
 		const subscription = await stripe.subscriptions.search({
@@ -39,7 +42,7 @@ export const createCheckoutSession = async (page_session: Session, token: string
 		if (subscription.data.length > 0) {
 			portal = await stripe.billingPortal.sessions.create({
 				customer: subscription.data[0].customer.toString(),
-				return_url: 'https://vanquished.gg/'
+				return_url: `${rootURL}/Success`
 			});
 		}
 	}
