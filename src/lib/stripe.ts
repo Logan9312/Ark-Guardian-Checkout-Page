@@ -4,7 +4,7 @@ import type { Session } from '@auth/core/types';
 export const createCheckoutSession = async (page_session: Session, token: string, sub: string) => {
 	let checkout_session = null;
 	let portal = null;
-	const rootURL = `https://ark-guardian-checkout-page.vercel.app`
+	const rootURL = `https://ark-guardian-checkout-page.vercel.app`;
 
 	const stripe = new Stripe(token, {
 		apiVersion: '2022-11-15'
@@ -35,7 +35,7 @@ export const createCheckoutSession = async (page_session: Session, token: string
 		});
 	} else {
 		const subscription = await stripe.subscriptions.search({
-			query: `metadata['discord_id']:'${page_session.user.id}'`
+			query: `metadata['user_id']:'${page_session.user.id}'`
 		});
 		if (subscription.data.length > 0) {
 			portal = await stripe.billingPortal.sessions.create({
