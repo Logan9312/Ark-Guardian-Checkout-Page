@@ -3,6 +3,7 @@
 	export const config = {
 		runtime: 'edge'
 	};
+	import '../app.css';
 </script>
 
 <svelte:head>
