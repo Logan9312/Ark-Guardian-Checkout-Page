@@ -19,7 +19,7 @@ export const createCheckoutSession = async (page_session: Session, token: string
 				} */
 			}
 		],
-		success_url: `https://vanquished.gg/`,
+		success_url: `/Success`,
 		cancel_url: `https://vanquished-checkout-page.vercel.app/signout`,
 		subscription_data: {
 			metadata: {

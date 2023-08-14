@@ -2,16 +2,14 @@ import type { LayoutServerLoad } from './$types';
 import { STRIPE_TOKEN } from '$env/static/private';
 import { createCheckoutSession } from '$lib/stripe';
 
-const VIP_SUB = 'price_1NIIjHHEkafLO3t8vlLNhlAK';
-const BALLER_SUB = 'price_1NboKhHEkafLO3t8MX8Jt3AK';
-const HIGH_ROLLER_SUB = 'price_1NboLXHEkafLO3t8Dw1bHfYk';
+const GUARDIAN_SUB = 'price_1LXBAWHUrL82UzZ3G31cWRNp';
 
 export const load: LayoutServerLoad = async (event) => {
 	const page_session = await event.locals.getSession();
 	let checkout_session = null;
 	let portal = null;
 	if (page_session) {
-		const result = await createCheckoutSession(page_session, STRIPE_TOKEN, VIP_SUB);
+		const result = await createCheckoutSession(page_session, STRIPE_TOKEN, GUARDIAN_SUB);
 		checkout_session = result.checkout_session;
 		portal = result.portal;
 	}
