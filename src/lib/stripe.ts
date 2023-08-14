@@ -4,9 +4,7 @@ import type { Session } from '@auth/core/types';
 export const createCheckoutSession = async (page_session: Session, token: string, sub: string) => {
 	let checkout_session = null;
 	let portal = null;
-	const rootURL = `${window.location.protocol}//${window.location.hostname}${
-		window.location.port ? ':' + window.location.port : ''
-	}`;
+	const rootURL = `https://ark-guardian-checkout-page.vercel.app`
 
 	const stripe = new Stripe(token, {
 		apiVersion: '2022-11-15'
@@ -23,7 +21,7 @@ export const createCheckoutSession = async (page_session: Session, token: string
 			}
 		],
 		success_url: `${rootURL}/Success`,
-		cancel_url: `${rootURL}/signout`,
+		cancel_url: `${rootURL}/Signout`,
 		subscription_data: {
 			metadata: {
 				discord_id: page_session.user.id
