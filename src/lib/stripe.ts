@@ -24,7 +24,7 @@ export const createCheckoutSession = async (page_session: Session, token: string
 		cancel_url: `${rootURL}/Signout`,
 		subscription_data: {
 			metadata: {
-				discord_id: page_session.user.id
+				user_id: page_session.user.id
 			}
 		}
 	});
