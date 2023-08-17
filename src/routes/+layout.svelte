@@ -14,7 +14,7 @@
 	<meta property="og:title" content="Purchase Access To Ark Guardian." />
 	<meta
 		property="og:description"
-		content="Subscribe now to become a VIP monthly supporter of Vanquished! Thanks in advance!"
+		content="Subscribe now to become a premium subscriber of Ark Guardian! Thanks in advance!"
 	/>
 	<meta property="og:image" content="/logo.png" />
 </svelte:head>
