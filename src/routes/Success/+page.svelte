@@ -14,3 +14,8 @@
 		</a>
 	</div>
 </div>
+
+<svelte:head>
+	<meta property="og:title" content="Success Page" />
+	<meta property="og:description" content="Success page to confirm subscription purchase." />
+</svelte:head>

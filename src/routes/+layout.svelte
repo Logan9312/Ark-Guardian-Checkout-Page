@@ -11,11 +11,7 @@
 	<title>Ark Guardian Checkout Page</title>
 	<meta name="description" content="Purchase Ark Guardian" />
 	<meta property="og:type" content="website" />
-	<meta property="og:title" content="Purchase Access To Ark Guardian." />
-	<meta
-		property="og:description"
-		content="Subscribe now to become a premium subscriber of Ark Guardian! Thanks in advance!"
-	/>
+
 	<meta property="og:image" content="/logo.png" />
 </svelte:head>
 

@@ -6,3 +6,8 @@
 		window.location.href = '/';
 	});
 </script>
+
+<svelte:head>
+	<meta property="og:title" content="Ark Guardian Checkout Sign Out" />
+	<meta property="og:description" content="Sign out of your discord account for checkout." />
+</svelte:head>
